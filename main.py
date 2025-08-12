@@ -1,7 +1,4 @@
-import re
 import json
-from datetime import datetime
-
 import requests
 from bs4 import BeautifulSoup
 
@@ -9,8 +6,6 @@ START_URL = 'https://quotes.toscrape.com'
 
 next_link = ''
 url = START_URL + next_link
-# data = []
-# about_links = list()
 
 def get_data(url):
     print (url)
@@ -67,13 +62,10 @@ def write_file(name_of_file, data_for_write):
     return print(f"{name_of_file} was print successfull")
 
 write_file("qoutes.json", data)
-# with open("qoutes.json", "w", encoding="utf-8") as f:
-#     json.dump(data, f, ensure_ascii=False, indent=2)
 
 data_about = list()
 for ithem in about_links:
     data_about.append(analis_autor_page(get_data(START_URL+ithem)))
 
 write_file("authors.json", data_about)
-# with open("authors.json", "w", encoding="utf-8") as f:
-#     json.dump(data_about, f, ensure_ascii=False, indent=2)
+

@@ -30,7 +30,7 @@ def get_data(url):
             tags_list.append(ithem_in_find_all.text)
         dict_for_data['tags'] = tags_list
         data_for_json.append(dict_for_data)
-    data.append(data_for_json)
+    data.extend(data_for_json)
 
     if soup.find('li', class_="next"):
         link_button = soup.find('li', class_="next").find("a")
